@@ -3,12 +3,46 @@ import java.util.ArrayList;
 
 public class ColorSearch 
 {
-
+	public void SearchColor(ArrayList<String> Colors, String searchColor)
+	{
+		
+		boolean found = false;
+		
+		for (String color : Colors)
+		{
+			
+			if (searchColor.compareTo(color) == 0)
+			{
+				
+				found = true;
+				break;
+				
+			}
+			
+		}
+		
+		if (found)
+		{
+			
+			System.out.println("The color " + searchColor + " was found after " + (Colors.indexOf(searchColor) + 1) + " searches.\n");
+			
+		}
+		
+		else if (!found)
+		{
+			
+			System.out.println("The color " + searchColor + " was not found after " + Colors.size() + " searches.\n");
+			
+		}
+		
+	}
+	
 	public static void main(String[] args) 
 	{
 
 		Scanner in = new Scanner(System.in);
 		
+		ColorSearch cSearch = new ColorSearch();
 		ArrayList<String> Colors = new ArrayList<String>();
 		String color;
 		String searchColor;
@@ -55,7 +89,7 @@ public class ColorSearch
 			else
 			{
 				
-				SearchColor(Colors, searchColor);
+				cSearch.SearchColor(Colors, searchColor);
 				
 			}
 			
@@ -65,38 +99,4 @@ public class ColorSearch
 		
 	}
 
-	public static void SearchColor(ArrayList<String> Colors, String searchColor)
-	{
-		
-		boolean found = false;
-		
-		for (String color : Colors)
-		{
-			
-			if (searchColor.compareTo(color) == 0)
-			{
-				
-				found = true;
-				break;
-				
-			}
-			
-		}
-		
-		if (found)
-		{
-			
-			System.out.println("The color " + searchColor + " was found after " + (Colors.indexOf(searchColor) + 1) + " searches.\n");
-			
-		}
-		
-		else if (!found)
-		{
-			
-			System.out.println("The color " + searchColor + " was not found after " + Colors.size() + " searches.\n");
-			
-		}
-		
-	}
-	
 }
